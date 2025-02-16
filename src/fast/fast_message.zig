@@ -2,7 +2,7 @@ const std = @import("std");
 const Allocator = std.mem.Allocator;
 
 /// A low level representation of a basic FAST Pinball serial
-const FastMessage = struct {
+pub const FastMessage = struct {
     allocator: Allocator,
     command: []const u8,
     address: ?[]const u8,
@@ -37,7 +37,12 @@ const FastMessage = struct {
         const args = try allocator.alloc([]const u8, argList.items.len);
         @memcpy(args, argList.items);
 
-        return FastMessage{ .command = cmd, .address = addr, .args = args, .allocator = allocator };
+        return FastMessage{
+            .command = cmd,
+            .address = addr,
+            .args = args,
+            .allocator = allocator,
+        };
     }
 
     fn deinit(message: FastMessage) void {

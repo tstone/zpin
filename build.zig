@@ -8,6 +8,9 @@ pub fn build(b: *std.Build) void {
         .optimize = b.standardOptimizeOption(.{}),
     });
 
+    const serial = b.dependency("serial", .{});
+    exe.root_module.addImport("serial", serial.module("serial"));
+
     b.installArtifact(exe);
 
     const run_exe = b.addRunArtifact(exe);

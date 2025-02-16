@@ -1,0 +1,15 @@
+.{
+    .name = "zpin",
+    .version = "0.0.0",
+    .dependencies = .{
+        .serial = .{
+            .url = "https://api.github.com/repos/ZigEmbeddedGroup/serial/tarball/db5cb522d95b5c30c1b92e3c37c19b874853dfc9",
+            .hash = "1220e1711a777c880a31d159b59daffadf29fc6f2d9514ecbb1e7b2ee61b5911ff38",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
