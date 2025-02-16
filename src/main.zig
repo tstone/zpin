@@ -34,7 +34,7 @@ pub fn main() !void {
         if (b == 13) {
             const trimmed = buffer.items[0 .. buffer.items.len - 1];
             const msg = try FastMessage.parse(allocator, trimmed);
-            // buffer.clearAndFree();
+            buffer.clearAndFree();
             std.debug.print("response: {}\n", .{msg});
             break;
         }
